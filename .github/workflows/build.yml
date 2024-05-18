@@ -14,3 +14,10 @@ jobs:
       - name: Build image
         run: |
           docker build -t juice-shop:${{github.sha}} .
+      - name: Scan image
+        uses: anchore/scan-action@v3
+        with:
+          image: juice-shop:${{github.sha}}
+
+
+
